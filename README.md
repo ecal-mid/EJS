@@ -1,4 +1,5 @@
-EJS
+***EJS***
+---
 Simple javascript framework
 
 To install dependencies:
