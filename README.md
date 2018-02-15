@@ -1,4 +1,4 @@
-***EJS***
+**EJS**
 ---
 Simple javascript framework
 
