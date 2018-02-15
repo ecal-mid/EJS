@@ -2,7 +2,7 @@
 ---
 Simple javascript framework
 
-To install dependencies:
+Install dependencies:
 ```
 yarn
 
@@ -10,7 +10,7 @@ yarn
 
 npm i
 ```
-To develop:
+Develop:
 ```
 yarn dev
 
