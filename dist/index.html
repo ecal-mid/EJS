@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="EJS.min.js"></script>
+    <title>EJS</title>
+    <style>
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Haha</h1>
+    <h5 class="button" target-popup='.popup, .popup1'>b1</h5>
+    <h5 class="button" target='.popup1'>b1</h5>
+    <h5 class="button" target='.popup'>b1</h5>
+    <h5 class="button" target='.popup1'>b1</h5>
+    <h5 class="button" target='.popup'>b1</h5>
+
+    <h5 class="popup">1</h5>
+    <h5 class="popup1">2</h5>
+    <h5 class="popup">3</h5>
+    <h5 class="popup1">4</h5>
+    <h5 class="popup">5</h5>
+    <script>
+        get('.button').forEach(function (elem) {
+            console.log(elem.target)
+        })
+        get('.button').on('click', function () {
+            this.target.toggleClass('hide');
+            this.css = {
+                'background-color': 'red'
+            }
+        });
+    </script>
+</body>
+</html>
