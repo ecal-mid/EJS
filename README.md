@@ -1,4 +1,19 @@
 EJS
+Simple javascript framework
 
-Run:
-run dev
+To install dependencies:
+```
+yarn
+
+// or
+
+npm i
+```
+To develop:
+```
+yarn dev
+
+// or
+
+npm run dev
+```
