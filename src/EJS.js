@@ -1,3 +1,6 @@
+// Class-list polyfill
+require('classlist-polyfill')
+
 // Add event cross browser
 function addEvent(elem, event, fn) {
     // avoid memory overhead of new anonymous functions for every event handler that's installed
