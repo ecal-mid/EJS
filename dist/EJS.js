@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,10 +70,24 @@
 "use strict";
 
 
-// Class-list polyfill
-__webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-// Add event cross browser
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _EJSList = __webpack_require__(1);
+
+var _EJSList2 = _interopRequireDefault(_EJSList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// Class-list polyfill
+__webpack_require__(3);
+
+
 function addEvent(elem, event, fn) {
     // avoid memory overhead of new anonymous functions for every event handler that's installed
     // by using local functions
@@ -114,198 +128,207 @@ function removeEvent(token) {
     }
 }
 
-// Global functions
-window.get = function (className) {
-    try {
-        return document.querySelectorAll(className);
-    } catch (e) {
-        console.error(e);
-    }
-};
+var EJSElement = function () {
+    function EJSElement(elem) {
+        var _this = this;
 
-// HTMLElements prototypes
-// QuerySelector with the current element as a parent
-HTMLElement.prototype.get = function (query) {
-    try {
-        return this.querySelectorAll(query);
-    } catch (e) {
-        console.error(e);
-    }
-};
+        _classCallCheck(this, EJSElement);
 
-// Check if that element contains a certain class
-HTMLElement.prototype.contains = function (className) {
-    try {
-        this.classList.contains(className);
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
+        if (elem instanceof HTMLElement) {
+            Object.defineProperty(this, 'elem', {
+                get: function get() {
+                    return elem;
+                }
+            });
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
 
-// Add a certain class to the current element
-HTMLElement.prototype.addClass = function (className) {
-    try {
-        this.classList.add(className);
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
+            try {
+                var _loop = function _loop() {
+                    var attr = _step.value;
 
-// Remove a certain class to the current element
-HTMLElement.prototype.removeClass = function (className) {
-    try {
-        this.classList.remove(className);
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
+                    if (attr.name !== 'class' && attr.name !== 'id' && attr.name !== 'length') {
+                        Object.defineProperty(_this, attr.name, {
+                            get: function get() {
+                                return window.get(attr.value);
+                            }
+                        });
+                    }
+                };
 
-// Toggle a class on the current element
-HTMLElement.prototype.toggleClass = function (className) {
-    try {
-        this.classList.toggle(className);
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
-
-// Add an event on the current element
-HTMLElement.prototype.on = function (event, fn) {
-    try {
-        addEvent(this, event, fn);
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
-
-// Remove an event on the current element
-HTMLElement.prototype.off = function (event, fn) {
-    try {
-        removeEvent({
-            elem: this,
-            event: event,
-            handler: fn
-        });
-    } catch (e) {
-        console.error(e);
-    }
-    return this;
-};
-
-// Get all attributes on the current element
-HTMLElement.prototype.getAttributes = function () {
-    return this.attributes;
-};
-
-// Object.defineProperty(HTMLElement.prototype, 'target', {
-//     get: function () {
-//         if (this.getAttribute('target')) {
-//             return window.get(this.getAttribute('target'))
-//         } else {
-//             console.error('No target is defined!')
-//         }
-//     }
-// })
-
-Object.defineProperty(HTMLElement.prototype, 'css', {
-    set: function set(css) {
-        for (var prop in css) {
-            this.style[prop] = css[prop] + '';
+                for (var _iterator = elem.attributes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    _loop();
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
         }
     }
+
+    _createClass(EJSElement, [{
+        key: 'get',
+        value: function get(query) {
+            try {
+                return new _EJSList2.default(this.elem.querySelectorAll(query));
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    }, {
+        key: 'addClass',
+        value: function addClass(className) {
+            try {
+                this.elem.classList.add(className);
+            } catch (e) {
+                console.error(e);
+            }
+            return this;
+        }
+    }, {
+        key: 'removeClass',
+        value: function removeClass(className) {
+            try {
+                this.elem.classList.remove(className);
+            } catch (e) {
+                console.error(e);
+            }
+            return this;
+        }
+    }, {
+        key: 'toggleClass',
+        value: function toggleClass(className) {
+            try {
+                this.elem.classList.toggle(className);
+            } catch (e) {
+                console.error(e);
+            }
+            return this;
+        }
+    }, {
+        key: 'setStyle',
+        value: function setStyle(css) {
+            if (css instanceof Object) {
+                for (var prop in css) {
+                    try {
+                        this.elem.style[prop] = css[prop] + '';
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+            } else {
+                console.error('The style is not an object');
+            }
+            return this;
+        }
+    }, {
+        key: 'on',
+        value: function on(event, fn) {
+            try {
+                addEvent(this.elem, event, fn.bind(this));
+            } catch (e) {
+                console.error(e);
+            }
+            return this;
+        }
+    }, {
+        key: 'off',
+        value: function off(event, fn) {
+            try {
+                removeEvent({
+                    elem: this.elem,
+                    event: event,
+                    handler: fn
+                });
+            } catch (e) {
+                console.error(e);
+            }
+            return this;
+        }
+    }, {
+        key: 'getTargets',
+        value: function getTargets() {
+            return;
+        }
+    }]);
+
+    return EJSElement;
+}();
+
+exports.default = EJSElement;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
 });
 
-// Array & NodeList prototypes
+var _EJSElement = __webpack_require__(0);
 
-Array.prototype.forEach = function (fn) {
-    if (fn instanceof Function) {
-        for (var i = 0; i < this.length; i++) {
-            fn(this[i], i);
-        }
-    } else {
-        console.error('fn is not a function');
-    }
-    return this;
-};
+var _EJSElement2 = _interopRequireDefault(_EJSElement);
 
-NodeList.prototype.forEach = function (fn) {
-    if (fn instanceof Function) {
-        for (var i = 0; i < this.length; i++) {
-            fn(this[i], i);
-        }
-    } else {
-        console.error('fn is not a function');
-    }
-    return this;
-};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-NodeList.prototype.addClass = function (className) {
-    if (typeof className == 'string') {
-        for (var i = 0; i < this.length; i++) {
-            this[i].addClass(className);
-        }
-    } else {
-        console.error(className + ' is not a valid query!');
-    }
-    return this;
-};
+// Only way I found to extends built-in array
+var EJSList = function EJSList(list) {
+    var _this = this;
 
-NodeList.prototype.removeClass = function (className) {
-    if (typeof className == 'string') {
-        for (var i = 0; i < this.length; i++) {
-            this[i].removeClass(className);
-        }
-    } else {
-        console.error(className + ' is not a valid query!');
-    }
-    return this;
-};
-
-NodeList.prototype.on = function (event, handler) {
-    this.forEach(function (element) {
-        element.on(event, handler);
-    });
-    return this;
-};
-
-NodeList.prototype.off = function (event, handler) {
-    this.forEach(function (element) {
-        element.off(event, handler);
-    });
-    return this;
-};
-
-NodeList.prototype.toggleClass = function (className) {
-    this.forEach(function (element) {
-        element.toggleClass(className);
-    });
-    return this;
-};
-
-window.onload = function () {
-    window.get('body *').forEach(function (elem) {
+    var targets = {};
+    for (var i = 0; i < list.length; i++) {
+        this.add(new _EJSElement2.default(list[i]));
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
 
         try {
-            var _loop = function _loop() {
-                var attrib = _step.value;
+            for (var _iterator = list[i].attributes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var attr = _step.value;
 
-                Object.defineProperty(elem, attrib.name, {
-                    get: function get() {
-                        return this.get(attrib.value);
+                if (attr.name !== 'class' && attr.name !== 'id' && attr.name !== 'length') {
+                    if (!targets[attr.name]) targets[attr.name] = [];
+                    var _iteratorNormalCompletion2 = true;
+                    var _didIteratorError2 = false;
+                    var _iteratorError2 = undefined;
+
+                    try {
+                        for (var _iterator2 = attr.value.split(',')[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                            var value = _step2.value;
+
+                            if (targets[attr.name].indexOf(value.trim()) === -1) {
+                                targets[attr.name].push(value.trim());
+                            }
+                        }
+                    } catch (err) {
+                        _didIteratorError2 = true;
+                        _iteratorError2 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                _iterator2.return();
+                            }
+                        } finally {
+                            if (_didIteratorError2) {
+                                throw _iteratorError2;
+                            }
+                        }
                     }
-                });
-            };
-
-            for (var _iterator = elem.attributes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                _loop();
+                }
             }
         } catch (err) {
             _didIteratorError = true;
@@ -321,13 +344,101 @@ window.onload = function () {
                 }
             }
         }
-    });
+    }
+
+    var _loop = function _loop(target) {
+        Object.defineProperty(_this, target, {
+            get: function get() {
+                return window.get(targets[target].join(','));
+            }
+        });
+    };
+
+    for (var target in targets) {
+        _loop(target);
+    }
+};
+EJSList.prototype = new Array();
+
+EJSList.prototype.add = function (value) {
+    if (value instanceof _EJSElement2.default) {
+        this.push(value);
+    } else {
+        console.error('Value is not an EJSElement');
+    }
+
+    return this;
 };
 
-// Object.defineProperty()
+EJSList.prototype.forEach = function (fn) {
+    for (var i = 0; i < this.length; i++) {
+        try {
+            fn(this[i], i);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+    return this;
+};
+
+EJSList.prototype.addClass = function (className) {
+    this.forEach(function (elem) {
+        elem.addClass(className);
+    });
+    return this;
+};
+
+EJSList.prototype.removeClass = function (className) {
+    this.forEach(function (elem) {
+        elem.removeClass(className);
+    });
+    return this;
+};
+
+EJSList.prototype.toggleClass = function (className) {
+    this.forEach(function (elem) {
+        elem.toggleClass(className);
+    });
+    return this;
+};
+
+EJSList.prototype.on = function (event, fn) {
+    this.forEach(function (elem) {
+        elem.on(event, fn);
+    });
+    return this;
+};
+
+exports.default = EJSList;
 
 /***/ }),
-/* 1 */
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _EJSElement = __webpack_require__(0);
+
+var _EJSElement2 = _interopRequireDefault(_EJSElement);
+
+var _EJSList = __webpack_require__(1);
+
+var _EJSList2 = _interopRequireDefault(_EJSList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.EJS = {
+    EJSElement: _EJSElement2.default,
+    EJSList: _EJSList2.default
+};
+
+window.get = function (query) {
+    return new _EJSList2.default(document.querySelectorAll(query));
+};
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

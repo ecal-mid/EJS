@@ -3,37 +3,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="EJS.min.js"></script> -->
     <script src="EJS.min.js"></script>
     <title>EJS</title>
     <style>
+        .block {
+            width: 100%;
+            height: 10px;
+            margin-bottom: 2px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .purple {
+            background: purple;
+        }
+
         .hide {
-            opacity: 0;
+            transform: translate(-100%, 0);
         }
     </style>
 </head>
 <body>
-    <h1 class="title">Haha</h1>
-    <h5 class="button" target-popup='.popup, .popup1'>b1</h5>
-    <h5 class="button" target='.popup1'>b1</h5>
-    <h5 class="button" target='.popup'>b1</h5>
-    <h5 class="button" target='.popup1'>b1</h5>
-    <h5 class="button" target='.popup'>b1</h5>
-
-    <h5 class="popup">1</h5>
-    <h5 class="popup1">2</h5>
-    <h5 class="popup">3</h5>
-    <h5 class="popup1">4</h5>
-    <h5 class="popup">5</h5>
+    <nav>
+        <div class="menu">
+            <h1 class="title">
+                EJS
+            </h1>
+        </div>
+        <div class="filters">
+            <h1 class="filter" target='.red'>red</h1>
+            <h1 class="filter" target='.blue'>blue</h1>
+            <h1 class="filter" target='.yellow'>yellow</h1>
+            <h1 class="filter" target='.green'>green</h1>
+            <h1 class="filter" target='.purple'>purple</h1>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block purple"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block red"></div>
+        <div class="block yellow"></div>
+        <div class="block yellow"></div>
+        <div class="block yellow"></div>
+        <div class="block yellow"></div>
+        <div class="block yellow"></div>
+        <div class="block green"></div>
+        <div class="block green"></div>
+        <div class="block green"></div>
+        <div class="block green"></div>
+        <div class="block green"></div>
+        <div class="block blue"></div>
+        <div class="block blue"></div>
+        <div class="block blue"></div>
+        <div class="block blue"></div>
+        <div class="block blue"></div>
+    </div>
     <script>
-        get('.button').forEach(function (elem) {
-            console.log(elem.target)
+        get('.filter').on('click', function () {
+            this.target.forEach(function (elem, index) {
+                setTimeout(function () {
+                    elem.toggleClass('hide')
+                }, index * 20)
+            })
         })
-        get('.button').on('click', function () {
-            this.target.toggleClass('hide');
-            this.css = {
-                'background-color': 'red'
-            }
-        });
     </script>
 </body>
 </html>
