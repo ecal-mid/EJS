@@ -68,6 +68,13 @@ EJSList.prototype.toggleClass = function (className) {
     return this
 }
 
+EJSList.prototype.setStyle = function (style) {
+    this.forEach(elem => {
+        elem.setStyle(style)
+    })
+    return this
+}
+
 EJSList.prototype.on = function (event, fn) {
     this.forEach(elem => {
         elem.on(event, fn)

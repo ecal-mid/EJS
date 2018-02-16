@@ -134,8 +134,4 @@ export default class EJSElement {
         }
         return this
     }
-
-    getTargets() {
-        return 
-    }
 }

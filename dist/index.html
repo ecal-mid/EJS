@@ -97,11 +97,9 @@
         <div class="block blue"></div>
     </div>
     <script>
-        get('.filter').on('click', function () {
-            this.target.forEach(function (elem, index) {
-                setTimeout(function () {
-                    elem.toggleClass('hide')
-                }, index * 20)
+        get('.block').on('click', function () {
+            this.setStyle({
+                background: 'red'
             })
         })
     </script>

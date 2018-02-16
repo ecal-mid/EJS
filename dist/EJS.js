@@ -256,11 +256,6 @@ var EJSElement = function () {
             }
             return this;
         }
-    }, {
-        key: 'getTargets',
-        value: function getTargets() {
-            return;
-        }
     }]);
 
     return EJSElement;
@@ -398,6 +393,13 @@ EJSList.prototype.removeClass = function (className) {
 EJSList.prototype.toggleClass = function (className) {
     this.forEach(function (elem) {
         elem.toggleClass(className);
+    });
+    return this;
+};
+
+EJSList.prototype.setStyle = function (style) {
+    this.forEach(function (elem) {
+        elem.setStyle(style);
     });
     return this;
 };
