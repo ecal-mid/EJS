@@ -71,6 +71,14 @@ export default class EJSElement {
         }
     }
 
+    get html() {
+        return this.elem.innerHTML
+    }
+
+    set html(value) {
+        this.elem.innerHTML = value
+    }
+
     addClass (className) {
         try {
             this.elem.classList.add(className)

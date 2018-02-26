@@ -97,10 +97,8 @@
         <div class="block blue"></div>
     </div>
     <script>
-        get('.block').on('click', function () {
-            this.setStyle({
-                background: 'red'
-            })
+        get('.filter').on('click', function () {
+            console.log(this.target.toggleClass('visible'))
         })
     </script>
 </body>

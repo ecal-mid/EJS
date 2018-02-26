@@ -23,6 +23,7 @@ const EJSList = function(list){
             }
         })
     }
+    // HTML ACCESS
 }
 EJSList.prototype = new Array()
 

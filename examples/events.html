@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Events - EJS</title>
+  <script src="../dist/EJS.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Helvetica;
+      font-weight: 100;
+    }
+
+    html, body{
+      margin: 0;
+    }
+
+    .section {
+      position: relative;
+      height: 33.333vh;
+    }
+
+    .section h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      color: white;
+      mix-blend-mode: difference;
+    }
+
+    .section .slider {
+      /* transition: width 0.3s ease-in-out; */
+      width: 0%;
+      height: 100%;
+    }
+
+    .click {
+      cursor: pointer;
+    }
+
+    .mouseenter {
+      cursor: move;
+    }
+
+    .mousemove {
+      cursor:e-resize;
+    }
+
+    .grey {
+      background: #EBF4F7;
+    }
+
+    .yellow {
+      background:rgb(255, 192, 18);
+    }
+
+    .blue {
+      background: #1A2A40;
+    }
+
+    .light-blue {
+      background: #2474A6;
+    }
+
+    .red {
+      background: rgb(255, 12, 45);
+    }
+
+    .view-source {
+      cursor: pointer;
+      position: fixed;
+      height: 50px;
+      width: 150px;
+      background: white;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      color: black;
+      mix-blend-mode: difference;
+      top: 0;
+      left: 0;
+    }
+
+    .view-source:hover {
+      color: white;
+      background: black;
+      border: solid 1px white;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="section click grey">
+    <h2>Click</h2>
+  </div>
+  <div class="section mouseenter grey">
+    <h2>Enter and leave</h2>
+  </div>
+  <div class="section mousemove grey">
+    <h2>Move</h2>
+    <div class="slider blue"></div>
+  </div>
+  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
+
+  <script>
+    get('.click').on('click', function () {
+      this.get('h2')[0].html = 'Clicked';
+      this.toggleClass('grey');
+      this.toggleClass('red');
+    })
+
+    get('.mouseenter').on('mouseenter', function () {
+      this.get('h2')[0].html = 'Mouse entered!';
+      this.toggleClass('yellow');
+    })
+
+    get('.mouseenter').on('mouseleave', function () {
+      this.get('h2')[0].html = 'Mouse leaved!';
+      this.toggleClass('yellow');
+    })
+
+    get('.mousemove').on('mousemove', function (e) {
+      this.get('.slider').setStyle({
+        width: (e.clientX / window.innerWidth) * 100 + '%'
+      })
+    })
+
+    function viewSource(){;
+      var source = "<html>\r";
+      source += document.getElementsByTagName('html')[0].innerHTML;
+      source += "</html>";
+      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      source = "<pre>"+source+"</pre>";
+      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
+      sourceWindow.document.write(source);
+      sourceWindow.document.close(); 
+      if(window.focus) sourceWindow.focus();
+    }  
+  </script>
+
+</body>
+</html>

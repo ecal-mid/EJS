@@ -256,6 +256,14 @@ var EJSElement = function () {
             }
             return this;
         }
+    }, {
+        key: 'html',
+        get: function get() {
+            return this.elem.innerHTML;
+        },
+        set: function set(value) {
+            this.elem.innerHTML = value;
+        }
     }]);
 
     return EJSElement;
@@ -352,6 +360,7 @@ var EJSList = function EJSList(list) {
     for (var target in targets) {
         _loop(target);
     }
+    // HTML ACCESS
 };
 EJSList.prototype = new Array();
 
