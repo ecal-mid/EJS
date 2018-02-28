@@ -15,7 +15,7 @@
         }
 
         .red {
-            background: red;
+            background: rgb(48, 182, 235);
         }
 
         .blue {
@@ -97,10 +97,8 @@
         <div class="block blue"></div>
     </div>
     <script>
-        get('.block').on('click', function () {
-            this.setStyle({
-                background: 'red'
-            })
+        get('.filter').on('click', function () {
+            this.target.toggleClass('hide')
         })
     </script>
 </body>
