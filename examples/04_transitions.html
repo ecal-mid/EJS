@@ -1,0 +1,211 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Events - EJS</title>
+  <script src="../dist/EJS.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Helvetica;
+      font-weight: 100;
+      font-size: 100px;
+    }
+
+    html, body{
+      margin: 0;
+    }
+
+    .columns {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+    }
+
+    .columns .column {
+      position: relative;
+      width: 20%;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-flow: column;
+    }
+
+    .one::before {
+      content: '1';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .two::before {
+      content: '2';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .three::before {
+      content: '3';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .four::before {
+      content: '4';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .five::before {
+      content: '5';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      color: white;
+    }
+
+    .columns .column .module{
+      position: relative;
+      height: 50%;
+      flex: 1, 1, auto;
+      transition: height 0.5s;
+    }
+
+    .module::before{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      transition: height 0.3s ease-in-out, width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+      background: white;
+      mix-blend-mode: difference;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .columns .column .open {
+      height: 200%;
+    }
+
+    .columns .column .open::before {
+      width: 50px;
+      height: 50px;
+      border-radius: 0%;
+    }
+
+    .grey {
+      background: #EBF4F7;
+    }
+
+    .yellow {
+      background:rgb(255, 212, 18);
+    }
+
+    .blue {
+      background: #1A2A40;
+    }
+
+    .light-blue {
+      background: #2474A6;
+    }
+
+    .red {
+      background: rgb(255, 12, 45);
+    }
+
+    .view-source {
+      cursor: pointer;
+      position: fixed;
+      height: 10vh;
+      width: 20vw;
+      background: white;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      color: black;
+      mix-blend-mode: difference;
+      top: 0;
+      right: 0;
+      font-size: 30px;
+    }
+
+    .view-source:hover {
+      color: white;
+      background: black;
+      border: solid 4px white;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="columns">
+    <div class="column one">
+      <div class="module red"></div>
+      <div class="module blue"></div>
+      <div class="module grey"></div>
+    </div>
+    <div class="column two">
+      <div class="module yellow"></div>
+      <div class="module grey"></div>
+      <div class="module red"></div>
+    </div>
+    <div class="column three">
+      <div class="module blue"></div>
+      <div class="module light-blue"></div>
+      <div class="module yellow"></div>
+    </div>
+    <div class="column four">
+      <div class="module grey"></div>
+      <div class="module red"></div>
+      <div class="module blue"></div>
+    </div>
+    <div class="column five">
+      <div class="module blue"></div>
+      <div class="module yellow"></div>
+      <div class="module light-blue"></div>
+    </div>
+  </div>
+  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
+
+  <script>
+    get('.module').on('mouseenter', function () {
+      this.toggleClass('open')
+    })
+
+    function viewSource(){;
+      var source = "<html>\r";
+      source += document.getElementsByTagName('html')[0].innerHTML;
+      source += "</html>";
+      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      source = "<pre>"+source+"</pre>";
+      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
+      sourceWindow.document.write(source);
+      sourceWindow.document.close(); 
+      if(window.focus) sourceWindow.focus();
+    }  
+  </script>
+
+</body>
+</html>

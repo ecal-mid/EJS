@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Events - EJS</title>
+  <script src="../dist/EJS.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Helvetica;
+      font-weight: 100;
+      font-size: 100px;
+    }
+
+    html, body{
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: 100%;
+      height: 100vh;
+    }
+
+    .grid .cell {
+      position: relative;
+    }
+
+    .grey {
+      background: #EBF4F7;
+    }
+
+    .grey::before {
+      content: 'G';
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+    }
+
+    .yellow {
+      background:rgb(255, 212, 18);
+    }
+
+    .yellow::before {
+      content: 'Y';
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+    }
+
+    .view-source {
+      cursor: pointer;
+      position: fixed;
+      height: 10vh;
+      width: 20vw;
+      background: white;
+      outline: none;
+      box-shadow: none;
+      border: none;
+      color: black;
+      mix-blend-mode: difference;
+      top: 0;
+      right: 0;
+      font-size: 30px;
+    }
+
+    .view-source:hover {
+      color: white;
+      background: black;
+      border: solid 4px white;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="grid">
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+    <div class="cell grey"></div>
+  </div>
+  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
+
+  <script>
+    get('.cell').on('mouseenter', function () {
+      this.toggleClass('yellow')
+      this.toggleClass('grey')
+    })
+
+    function viewSource(){;
+      var source = "<html>\r";
+      source += document.getElementsByTagName('html')[0].innerHTML;
+      source += "</html>";
+      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      source = "<pre>"+source+"</pre>";
+      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
+      sourceWindow.document.write(source);
+      sourceWindow.document.close(); 
+      if(window.focus) sourceWindow.focus();
+    }  
+  </script>
+
+</body>
+</html>
