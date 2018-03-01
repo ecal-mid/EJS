@@ -3,12 +3,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/main.css">
     <title>EJS</title>
+    <style>
+        .examples {
+            padding: 50px 0 0 0;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .examples .example {
+            height: 100%;
+            flex: 1, 1, auto;
+            position: relative;
+        }
+
+        .examples .example h3 {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translate(0%, -50%);
+        }
+    </style>
 </head>
 <body>
-    <iframe src="iframes/menu.html" height='0' width='0' frameborder='0'></iframe>
+    <iframe id="menu" src="/iframes/menu.html" frameborder='0'></iframe>
     <div class="examples">
-        <a href="examples/01_basicEvent.html">Basic Event</a>
+        <a class='example' href="examples/01_basicEvent.html">
+            <h3>Basic Event</h3>
+        </a>
+        <a class='example' href="examples/02_advancedEvents.html">
+            <h3>Advaneced Events</h3>
+        </a>
+        <a class='example' href="examples/03_toggleClass.html">
+            <h3>Toggle Class</h3>
+        </a>
+        <a class='example' href="examples/04_toggleAndTransitions.html">
+            <h3>Toggle and Transitions</h3>
+        </a>
+        <a class='example' href="examples/05_filter.html">
+            <h3>Filter</h3>
+        </a>
+        <a class='example' href="examples/06_popup.html">
+            <h3>Popup</h3>
+        </a>
     </div>
+    <script src="/scripts/showsource.js"></script>
 </body>
 </html>

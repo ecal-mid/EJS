@@ -4,20 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Events - EJS</title>
+  <link rel="stylesheet" href="/styles/main.css">
   <script src="../dist/EJS.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Helvetica;
-      font-weight: 100;
-      font-size: 100px;
-    }
-
-    html, body{
-      margin: 0;
-    }
-
     .section {
       position: relative;
       height: 33.333vh;
@@ -51,26 +41,6 @@
       cursor:e-resize;
     }
 
-    .grey {
-      background: #EBF4F7;
-    }
-
-    .yellow {
-      background:rgb(255, 212, 18);
-    }
-
-    .blue {
-      background: #1A2A40;
-    }
-
-    .light-blue {
-      background: #2474A6;
-    }
-
-    .red {
-      background: rgb(255, 12, 45);
-    }
-
     .view-source {
       cursor: pointer;
       position: fixed;
@@ -96,6 +66,7 @@
 
 </head>
 <body>
+  <iframe id="menu" src="/iframes/menu.html" frameborder='0'></iframe>
   <div class="section click grey">
     <h2>Click</h2>
   </div>

@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Events - EJS</title>
   <script src="../dist/EJS.min.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
 
   <style>
     * {
@@ -29,10 +30,6 @@
       position: relative;
     }
 
-    .grey {
-      background: #EBF4F7;
-    }
-
     .grey::before {
       content: 'G';
       color: white;
@@ -41,10 +38,6 @@
       top: 50%;
       transform: translate(-50%, -50%);
       mix-blend-mode: difference;
-    }
-
-    .yellow {
-      background:rgb(255, 212, 18);
     }
 
     .yellow::before {
@@ -82,6 +75,7 @@
 
 </head>
 <body>
+  <iframe id="menu" src="/iframes/menu.html" frameborder='0'></iframe>
   <div class="grid">
     <div class="cell grey"></div>
     <div class="cell grey"></div>
