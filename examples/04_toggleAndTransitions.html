@@ -8,17 +8,6 @@
   <link rel="stylesheet" href="/styles/main.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Helvetica;
-      font-weight: 100;
-      font-size: 100px;
-    }
-
-    html, body{
-      margin: 0;
-    }
-
     .columns {
       width: 100%;
       height: 100%;
@@ -85,28 +74,6 @@
     .red {
       background: rgb(255, 12, 45);
     }
-
-    .view-source {
-      cursor: pointer;
-      position: fixed;
-      height: 10vh;
-      width: 20vw;
-      background: white;
-      outline: none;
-      box-shadow: none;
-      border: none;
-      color: black;
-      mix-blend-mode: difference;
-      top: 0;
-      right: 0;
-      font-size: 30px;
-    }
-
-    .view-source:hover {
-      color: white;
-      background: black;
-      border: solid 4px white;
-    }
   </style>
 
 </head>
@@ -139,25 +106,12 @@
       <div class="module light-blue"></div>
     </div>
   </div>
-  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
 
   <script>
     get('.module').on('mouseenter', function () {
       this.toggleClass('open')
-    })
-
-    function viewSource(){;
-      var source = "<html>\r";
-      source += document.getElementsByTagName('html')[0].innerHTML;
-      source += "</html>";
-      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      source = "<pre>"+source+"</pre>";
-      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
-      sourceWindow.document.write(source);
-      sourceWindow.document.close(); 
-      if(window.focus) sourceWindow.focus();
-    }  
+    }) 
   </script>
-
+  <script src="/scripts/showsource.js"></script>
 </body>
 </html>

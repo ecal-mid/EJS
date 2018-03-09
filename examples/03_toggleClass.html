@@ -8,17 +8,6 @@
   <link rel="stylesheet" href="/styles/main.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Helvetica;
-      font-weight: 100;
-      font-size: 100px;
-    }
-
-    html, body{
-      margin: 0;
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -28,6 +17,7 @@
 
     .grid .cell {
       position: relative;
+      font-size: 100px;
     }
 
     .grey::before {
@@ -103,26 +93,13 @@
     <div class="cell grey"></div>
     <div class="cell grey"></div>
   </div>
-  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
 
   <script>
     get('.cell').on('mouseenter', function () {
       this.toggleClass('yellow')
       this.toggleClass('grey')
     })
-
-    function viewSource(){;
-      var source = "<html>\r";
-      source += document.getElementsByTagName('html')[0].innerHTML;
-      source += "</html>";
-      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      source = "<pre>"+source+"</pre>";
-      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
-      sourceWindow.document.write(source);
-      sourceWindow.document.close(); 
-      if(window.focus) sourceWindow.focus();
-    }  
   </script>
-
+  <script src="/scripts/showsource.js"></script>
 </body>
 </html>

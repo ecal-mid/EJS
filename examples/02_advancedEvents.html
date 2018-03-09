@@ -77,7 +77,6 @@
     <h2>Move</h2>
     <div class="slider blue"></div>
   </div>
-  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
 
   <script>
     get('.click').on('click', function () {
@@ -105,20 +104,8 @@
 
     get('.mousemove').on('mouseleave', function (e) {
       this.get('h2')[0].html = 'Move'
-    })
-
-    function viewSource(){;
-      var source = "<html>\r";
-      source += document.getElementsByTagName('html')[0].innerHTML;
-      source += "</html>";
-      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      source = "<pre>"+source+"</pre>";
-      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
-      sourceWindow.document.write(source);
-      sourceWindow.document.close(); 
-      if(window.focus) sourceWindow.focus();
-    }  
+    }) 
   </script>
-
+  <script src="/scripts/showsource.js"></script>
 </body>
 </html>

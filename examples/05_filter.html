@@ -5,19 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Events - EJS</title>
   <script src="../dist/EJS.min.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Helvetica;
-      font-weight: 100;
-      font-size: 100px;
-    }
-
-    html, body{
-      margin: 0;
-    }
-
     .grid {
       height: 100vh;
       display: grid;
@@ -78,6 +68,7 @@
 
 </head>
 <body>
+  <iframe id="menu" src="/iframes/menu.html" frameborder='0'></iframe>
   <div class="grid">
     <div class="cell yellow" target='.yellow'></div>
     <div class="cell blue" target='.blue'></div>
@@ -100,7 +91,6 @@
     <div class="cell yellow" target='.yellow'></div>
     <div class="cell red" target='.red'></div>
   </div>
-  <button class='view-source' type ="button" onclick="viewSource()">View Source</button>
 
   <script>
     get('.cell').on('mouseenter', function () {
@@ -109,20 +99,8 @@
 
     get('.cell').on('mouseleave', function () {
       this.target.removeClass('hidden')
-    })
-
-    function viewSource(){;
-      var source = "<html>\r";
-      source += document.getElementsByTagName('html')[0].innerHTML;
-      source += "</html>";
-      source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      source = "<pre>"+source+"</pre>";
-      sourceWindow = window.open('','Source of page','height=800,width=800,scrollbars=1,resizable=1');
-      sourceWindow.document.write(source);
-      sourceWindow.document.close(); 
-      if(window.focus) sourceWindow.focus();
-    }  
+    }) 
   </script>
-
+  <script src="/scripts/showsource.js"></script>
 </body>
 </html>
