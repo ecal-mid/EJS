@@ -111,11 +111,12 @@ get('.class-name').setStyle({
 })
 ```
 
----
 ## EJSList properties:
 
-forEach: Loop through all selected elements
-### Example:
+### ForEach
+Loop through all selected elements
+
+#### Example:
 
 ```js
 // We get the current element and his index through the parameters passed to the handler function
@@ -124,12 +125,33 @@ get('.class-name').forEach(function (element, index) {
 })
 ```
 
----
 ## EJSElement properties:
 
-elem: Retrieve the base html element (this is a getter -> read only)
-html: Get and set the innerHTML of the element
+### Elem
+Retrieve the base html element (this is a getter -> read only)
 
+#### Example:
+
+```js
+get('.class-name').forEach(function (element, index) {
+    const value = 1;
+    const rawHTMLElement = element.elem;
+    rawHTMLElement.setAttribute('attributeName', value);
+})
+```
+
+### Html
+Get and set the innerHTML of the element
+
+#### Example:
+
+```js
+get('.class-name').forEach(function (element, index) {
+    element.html = 'text'
+})
+```
+
+## Developement
 Install dependencies:
 ```
 yarn
