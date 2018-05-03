@@ -14,6 +14,10 @@
             transition: transform 0.5s ease-in-out;
         }
 
+        .fill-red {
+            fill: red !important
+        }
+
         .red {
             background: rgb(48, 182, 235);
         }
@@ -47,7 +51,7 @@
             </h1>
         </div>
         <div class="filters">
-            <h1 class="filter" target='.red'>red</h1>
+            <h1 class="filter" target='#circle'>red</h1>
             <h1 class="filter" target='.blue'>blue</h1>
             <h1 class="filter" target='.yellow'>yellow</h1>
             <h1 class="filter" target='.green'>green</h1>
@@ -55,50 +59,27 @@
         </div>
     </nav>
     <div class="content">
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block purple"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block red"></div>
-        <div class="block yellow"></div>
-        <div class="block yellow"></div>
-        <div class="block yellow"></div>
-        <div class="block yellow"></div>
-        <div class="block yellow"></div>
-        <div class="block green"></div>
-        <div class="block green"></div>
-        <div class="block green"></div>
-        <div class="block green"></div>
-        <div class="block green"></div>
-        <div class="block blue"></div>
-        <div class="block blue"></div>
-        <div class="block blue"></div>
-        <div class="block blue"></div>
-        <div class="block blue"></div>
+        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 768">
+            <defs>
+                <style>.cls-1{fill:#fff;}</style>
+            </defs>
+            <title>Artboard 1</title>
+            <ellipse id='circle' class="cls-1" cx="587" cy="245.5" rx="230.5" ry="56"/>
+            <path d="M587,190c61.62,0,119.55,5.87,163.1,16.52,21.13,5.17,37.69,11.17,49.25,17.85S817,238.26,817,245.5s-5.94,14.35-17.65,21.13-28.12,12.68-49.25,17.85C706.55,295.13,648.62,301,587,301s-119.55-5.87-163.1-16.52c-21.13-5.17-37.69-11.17-49.25-17.85S357,252.74,357,245.5s5.94-14.35,17.65-21.13,28.12-12.68,49.25-17.85C467.45,195.87,525.38,190,587,190m0-1c-127.58,0-231,25.3-231,56.5S459.42,302,587,302s231-25.3,231-56.5S714.58,189,587,189Z"/>
+            <ellipse class="cls-1" cx="754.5" cy="393" rx="108" ry="146.5"/>
+            <path d="M754.5,247C813.78,247,862,312.5,862,393S813.78,539,754.5,539,647,473.5,647,393s48.22-146,107.5-146m0-1C694.58,246,646,311.81,646,393s48.58,147,108.5,147S863,474.19,863,393,814.42,246,754.5,246Z"/>
+            <ellipse class="cls-1" cx="588" cy="462.5" rx="129.5" ry="69"/>
+            <path d="M588,394c71.13,0,129,30.73,129,68.5S659.13,531,588,531s-129-30.73-129-68.5S516.87,394,588,394m0-1c-71.8,0-130,31.12-130,69.5S516.2,532,588,532s130-31.12,130-69.5S659.8,393,588,393Z"/>
+            <ellipse class="cls-1" cx="417.5" cy="416.5" rx="88" ry="185"/>
+            <path d="M417.5,232c48.25,0,87.5,82.77,87.5,184.5S465.75,601,417.5,601,330,518.23,330,416.5,369.25,232,417.5,232m0-1c-48.88,0-88.5,83.05-88.5,185.5S368.62,602,417.5,602,506,519,506,416.5,466.38,231,417.5,231Z"/>
+            <ellipse class="cls-1" cx="597" cy="349" rx="156.5" ry="93.5"/>
+            <path d="M597,256c86,0,156,41.72,156,93s-70,93-156,93-156-41.72-156-93,70-93,156-93m0-1c-86.71,0-157,42.09-157,94s70.29,94,157,94,157-42.09,157-94-70.29-94-157-94Z"/>
+        </svg>
     </div>
     <script>
+        console.log(document.querySelectorAll('.cls-1'))
         get('.filter').on('click', function () {
-            console.log(this.target.toggleClass('visible'))
+            console.log(this.target.toggleClass('fill-red'))
         })
     </script>
 </body>

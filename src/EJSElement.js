@@ -45,20 +45,18 @@ function removeEvent(token) {
 export default class EJSElement {
 
     constructor (elem) {
-        if (elem instanceof HTMLElement) {
-            Object.defineProperty(this, 'elem', {
-                get() {
-                    return elem
-                }
-            })
-            for(const attr of elem.attributes) {
-                if (attr.name !== 'class' && attr.name !== 'id' && attr.name !== 'length') {
-                    Object.defineProperty(this, attr.name, {
-                        get() {
-                            return window.get(attr.value)
-                        }
-                    })
-                }
+        Object.defineProperty(this, 'elem', {
+            get() {
+                return elem
+            }
+        })
+        for(const attr of elem.attributes) {
+            if (attr.name !== 'class' && attr.name !== 'id' && attr.name !== 'length') {
+                Object.defineProperty(this, attr.name, {
+                    get() {
+                        return window.get(attr.value)
+                    }
+                })
             }
         }
     }
