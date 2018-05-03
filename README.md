@@ -1,6 +1,7 @@
 **EJS**
 ---
 Simple javascript framework.
+[Working examples](https://ecal-mid.github.io/EJS/)
 
 ## Installing
 
