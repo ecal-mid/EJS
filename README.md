@@ -46,7 +46,7 @@ get('.class-name')
 
 ## EJSList & EJSElement properties:
 
-### on
+### On
 Attach event to the selected elements
 
 #### Example: 
@@ -59,39 +59,49 @@ get('.class-name').on('click', function (event) {
 })
 ```
 
-off: Remove event from the selected elements
-### Example: 
+### Off
+Remove event from the selected elements
+
+#### Example: 
 
 ```js
 get('.class-name').off('click', clickHandler)
 ```
 
-addClass: Add a class to the selected elements
-### Examples:
+### AddClass
+Add a class to the selected elements
+
+#### Examples:
 
 ```js
 // Here we are adding a class on the selected elements
 get('.class-name').addClass('new-class-name')
 ```
 
-removeClass: Remove a class from the selected elements
-### Example:
+### RemoveClass
+Remove a class from the selected elements
+
+#### Example:
 
 ```js
 // Here we are removing a class from the selected elements
 get('.class-name').removeClass('class-name-to-remove')
 ```
 
-toggleClass: Toggle a class on the selected elements
-### Example:
+### ToggleClass
+Toggle a class on the selected elements
+
+#### Example:
 
 ```js
 // Here we are toggling a class on the selected elements
 get('.class-name').toggleClass('class-name-to-toggle')
 ```
 
-setStyle: Set a custom style on the selected elements
-### Example:
+### SetStyle
+Set a custom style on the selected elements
+
+#### Example:
 
 ```js
 // Here we are adding custom css properties to the selected elements
