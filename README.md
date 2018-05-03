@@ -61,41 +61,53 @@ get('.class-name').off('click', clickHandler)
 addClass: Add a class to the selected elements
 ### Examples:
 
-    // Here we are adding a class on the selected elements
-    get('.class-name').addClass('new-class-name')
+```js
+// Here we are adding a class on the selected elements
+get('.class-name').addClass('new-class-name')
+```
 
 removeClass: Remove a class from the selected elements
-Example:
+### Example:
 
-    // Here we are removing a class from the selected elements
-    get('.class-name').removeClass('class-name-to-remove')
+```js
+// Here we are removing a class from the selected elements
+get('.class-name').removeClass('class-name-to-remove')
+```
 
 toggleClass: Toggle a class on the selected elements
-Example:
+### Example:
 
-    // Here we are toggling a class on the selected elements
-    get('.class-name').toggleClass('class-name-to-toggle')
+```js
+// Here we are toggling a class on the selected elements
+get('.class-name').toggleClass('class-name-to-toggle')
+```
 
 setStyle: Set a custom style on the selected elements
-Example:
+### Example:
 
-    // Here we are adding custom css properties to the selected elements
-    get('.class-name').setStyle({
-        background: 'red',
-        border: 'solid blue 1px'
-    })
+```js
+// Here we are adding custom css properties to the selected elements
+get('.class-name').setStyle({
+    background: 'red',
+    border: 'solid blue 1px'
+})
+```
 
-EJSList properties:
+---
+## EJSList properties:
 
 forEach: Loop through all selected elements
-Example:
+### Example:
 
-    // We get the current element and his index through the parameters passed to the handler function
-    get('.class-name').forEach(function (element, index) {
-        element.addClass('new-class-name-' + index)
-    })
+```js
+// We get the current element and his index through the parameters passed to the handler function
+get('.class-name').forEach(function (element, index) {
+    element.addClass('new-class-name-' + index)
+})
+```
 
-EJSElement properties:
+---
+## EJSElement properties:
 
 elem: Retrieve the base html element (this is a getter -> read only)
 html: Get and set the innerHTML of the element
