@@ -32,7 +32,7 @@ Example:
 
 EJS is based on two main objects: EJSList and EJSElement
 
-### get('.class-name')
+### Get
 
 A global function 'get' is exposed when including the library in an HTML document.
 
