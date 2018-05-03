@@ -28,7 +28,7 @@ Example:
 </body>
 </html>
 ```
-## Examples
+## Global property
 
 EJS is based on two main objects: EJSList and EJSElement
 
@@ -44,7 +44,7 @@ A global function 'get' is exposed when including the library in an HTML documen
 get('.class-name')
 ```
 
-Both of these objects have these properties:
+## EJSList and EJSElement properties:
 
 on: Attach event to the selected elements
 ### Example: 
