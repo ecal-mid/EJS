@@ -29,7 +29,7 @@ Example:
 </body>
 </html>
 ```
-
+--
 EJS is based on two main objects: EJSList and EJSElement
 
 ### get('.class-name')
