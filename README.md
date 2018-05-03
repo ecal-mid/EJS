@@ -28,6 +28,7 @@ Example:
 </body>
 </html>
 ```
+## Examples
 
 EJS is based on two main objects: EJSList and EJSElement
 
