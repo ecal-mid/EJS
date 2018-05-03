@@ -418,6 +418,13 @@ EJSList.prototype.on = function (event, fn) {
     return this;
 };
 
+EJSList.prototype.off = function (event, fn) {
+    this.forEach(function (elem) {
+        elem.off(event, fn);
+    });
+    return this;
+};
+
 exports.default = EJSList;
 
 /***/ }),
