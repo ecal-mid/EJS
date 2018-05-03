@@ -5,9 +5,13 @@ Simple javascript framework.
 Installation:
 
 include:
+```html
 <script src="EJS.js"></script>
+```
 or
+```html
 <script src="EJS.min.js"></script>
+```
 
 Example:
 
