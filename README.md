@@ -30,30 +30,36 @@ EJS is based on two main objects: EJSList and EJSElement
 
 A global function 'get' is exposed when including the library in an HTML document.
 
-Example:
+### Example:
 
-    // Selecting elements
-    // This returns a EJSList
-    get('.class-name')
+```js
+// Selecting elements
+// This returns a EJSList
+get('.class-name')
+```
 
 Both of these objects have these properties:
 
 on: Attach event to the selected elements
-Example: 
+### Example: 
 
-    get('.class-name').on('click', function (event) {
-        // This is an EJSElement
-        // Here we are adding a class on the element that has been clicked
-        this.addClass('.new-class-name')
-    })
+```js
+get('.class-name').on('click', function (event) {
+    // This is an EJSElement
+    // Here we are adding a class on the element that has been clicked
+    this.addClass('.new-class-name')
+})
+```
 
 off: Remove event from the selected elements
-Example: 
+### Example: 
 
-    get('.class-name').off('click', clickHandler)
+```js
+get('.class-name').off('click', clickHandler)
+```
 
 addClass: Add a class to the selected elements
-Examples:
+### Examples:
 
     // Here we are adding a class on the selected elements
     get('.class-name').addClass('new-class-name')
