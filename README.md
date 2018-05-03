@@ -53,7 +53,7 @@ Attach event to the selected elements
 
 ```js
 get('.class-name').on('click', function (event) {
-    // This is an EJSElement
+    // This is a EJSElement
     // Here we are adding a class on the element that has been clicked
     this.addClass('.new-class-name')
 })
