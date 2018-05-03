@@ -44,10 +44,12 @@ A global function 'get' is exposed when including the library in an HTML documen
 get('.class-name')
 ```
 
-## EJSList and EJSElement properties:
+## EJSList & EJSElement properties:
 
-on: Attach event to the selected elements
-### Example: 
+### on
+Attach event to the selected elements
+
+#### Example: 
 
 ```js
 get('.class-name').on('click', function (event) {
